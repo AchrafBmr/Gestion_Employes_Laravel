@@ -1,0 +1,31 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .btn-black {
+    background-color: #000000;
+    color: #fff;
+    margin-top: 20px;
+  }
+  .btn-black:hover{
+      background-color: #6c6969;
+      color: #fff
+  }
+  label {
+      font-family: verdana;
+      font-weight: bold;
+  }
+  .form-group{
+      margin-bottom: 10px;
+      width: 50%;
+      margin: auto
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+
+  }

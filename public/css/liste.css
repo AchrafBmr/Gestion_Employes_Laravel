@@ -1,0 +1,13 @@
+
+  
+.table-container table thead th {
+    text-align: center;
+    background-color: #535C91;
+    color: white;   
+}
+
+.title {
+    font-family: verdana;
+    padding: 10px;
+    font-weight: bold;
+}
