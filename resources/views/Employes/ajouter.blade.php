@@ -11,17 +11,13 @@
         <div class="container">
             <h2 class="text-center mb-4">Ajouter Employee</h2>
             @if(count($errors) > 0)
-                <div class="alert alert-danger">
+                <div class="alert alert-danger alert-dismissable">
                     <ul>
                         @foreach ($errors -> all() as $error)
                             <li>{{$error}}</li>
                         @endforeach
                     </ul>
-                </div>
-            @endif
-            @if (\Session::has('success'))
-                <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
+                    <a href="{{url('Employe/create')}}" class="close" data-dismiss="alert" aria-label="close">×</a>
                 </div>
             @endif
 

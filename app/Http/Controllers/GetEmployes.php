@@ -14,7 +14,7 @@ class GetEmployes extends Controller
     public function index()
     {
         $Employe = GEsmployes::all()->toArray();
-        return view('Employes.liste' , compact('Employe'));
+        return view('Employes.liste' , ['Employe' => $Employe]);
     }
 
     /**
@@ -47,9 +47,11 @@ class GetEmployes extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($emp)
     {
-        //
+        $Employe = GEsmployes::all()->toArray();
+        $idx = array_search($emp , array_column($Employe , 'id'));
+        return view('Employes.show' , ['emp'  => $Employe[$idx]]);
     }
 
     /**

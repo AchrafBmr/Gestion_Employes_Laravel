@@ -29,3 +29,25 @@
     min-height: 70vh;
 
   }
+
+  .alert {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+
+  .alert ul li{
+    list-style: none;
+}
+
+.alert ul {
+  margin: 0;
+  padding: 0;
+}
+
+  .alert a {
+    text-decoration: none;
+    font-size: xx-large;
+    color: #6c6969;
+  }

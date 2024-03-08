@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class GEsmployes extends Model
 {
-    protected $fillable = ['nom' , 'prenom' , 'email'];
+    protected $fillable = ['id' , 'nom' , 'prenom' , 'email'];
 }
