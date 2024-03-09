@@ -12,6 +12,12 @@
             <p class="card-text text-center">{{$emp['prenom']}}</p>
             <h6 class="card-title text-right">Email:</h6>
             <p class="card-text text-center">{{$emp['email']}}</p>
+
+            <h6 class="card-title text-right">creer a :</h6>
+            <p class="card-text text-center">{{ (new DateTime($emp['created_at']))->format('Y-m-d H:i:s')}}</p>
+
+            <h6 class="card-title text-right">modifier a :</h6>
+            <p class="card-text text-center">{{ (new DateTime($emp['updated_at']))->format('Y-m-d H:i:s')}}</p>
         </div>
     </div>
 @stop
