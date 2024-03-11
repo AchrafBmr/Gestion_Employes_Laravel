@@ -26,5 +26,9 @@ Route::get('/', function () {
 });
 */
 
+Route::get('/add' , function(){
+    return ('<h1>added seccessful</h1>')
+});
+
 
 
