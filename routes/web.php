@@ -27,7 +27,7 @@ Route::get('/', function () {
 */
 
 Route::get('/add' , function(){
-    return ('<h1>added seccessful</h1>')
+    return ('<h1>welcom to add page</h1>')
 });
 
 
