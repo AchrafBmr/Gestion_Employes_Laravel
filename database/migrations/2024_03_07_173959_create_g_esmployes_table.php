@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('prenom');
-            $table->string('email');
+            $table->float('salaire');
             $table->timestamps();
         });
     }

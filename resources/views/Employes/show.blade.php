@@ -11,7 +11,7 @@
             <h6 class="card-title">Prenom:</h6>
             <p class="card-text text-center">{{$emp['prenom']}}</p>
             <h6 class="card-title text-right">Email:</h6>
-            <p class="card-text text-center">{{$emp['email']}}</p>
+            <p class="card-text text-center">{{$emp['salaire']}}</p>
 
             <h6 class="card-title text-right">creer a :</h6>
             <p class="card-text text-center">{{ (new DateTime($emp['created_at']))->format('Y-m-d H:i:s')}}</p>

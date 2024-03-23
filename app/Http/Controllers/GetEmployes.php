@@ -33,12 +33,12 @@ class GetEmployes extends Controller
         $this->validate($request , [
             'nom' => 'required',
             'prenom' => 'required',
-            'email' => 'required'
+            'salaire' => 'required'
         ]);
         $Employe = new GEsmployes([
             'nom' => $request->get('nom'),
             'prenom' => $request->get('prenom'),
-            'email' => $request->get('email')
+            'salaire' => $request->get('salaire')
         ]);
         $Employe->save();
         return redirect()->route('Employe.index')->with('success','Employe bien ajouter');
@@ -49,32 +49,45 @@ class GetEmployes extends Controller
      */
     public function show($emp)
     {
-        $Employe = GEsmployes::all()->toArray();
-        $idx = array_search($emp , array_column($Employe , 'id'));
-        return view('Employes.show' , ['emp'  => $Employe[$idx]]);
+        
+        return view('Employes.show' , ['emp'  => GEsmployes::findOrFail($emp)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($emp)
     {
-        //
+        return view('Employes.edit' , ['emp'  => GEsmployes::findOrFail($emp)]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $emp)
     {
-        //
+        $this->validate($request, [
+            'nom' => 'required',
+            'prenom' => 'required',
+            'salaire' => 'required'
+        ]);
+    
+        $Employe = GEsmployes::findOrFail($emp);
+        $Employe->nom = $request->get('nom');
+        $Employe->prenom = $request->get('prenom');
+        $Employe->salaire = $request->get('salaire');
+        $Employe->save();
+    
+        return redirect()->route('Employe.show' , ['Employe' => $emp]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($emp)
     {
-        //
+        $Employe = GEsmployes::findOrFail($emp);
+        $Employe -> delete();
+        return redirect()->route('Employe.index');
     }
 }

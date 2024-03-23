@@ -10,30 +10,38 @@
     <div class="center">
         <div class="container">
             <h2 class="text-center mb-4">Ajouter Employee</h2>
-            @if(count($errors) > 0)
-                <div class="alert alert-danger alert-dismissable">
-                    <ul>
-                        @foreach ($errors -> all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                    <a href="{{url('Employe/create')}}" class="close" data-dismiss="alert" aria-label="close">×</a>
-                </div>
-            @endif
 
             <form method="POST" action="{{url('Employe')}}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input name="nom" type="text" class="form-control" id="nom" placeholder="Enter nom">
+                    @error('nom')
+                        <div style="color :red">
+                            {{$message}}
+                            <a href="{{url('Employe/create')}}" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        </div>
+                    @enderror
                     </div>
                 <div class="form-group">
                     <label for="prenom">Prenom</label>
                     <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Enter prenom">
+                    @error('prenom')
+                        <div style="color :red">
+                            {{$message}}
+                            <a href="{{url('Employe/create')}}" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        </div>
+                   @enderror
                     </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
+                    <label for="salaire">Salaire</label>
+                    <input name="salaire" type="number" class="form-control" id="salaire" placeholder="Enter salaire">
+                    @error('salaire')
+                        <div style="color :red">
+                            {{$message}}
+                            <a href="{{url('Employe/create')}}" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        </div>
+                   @enderror
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-black">Ajouter</button>

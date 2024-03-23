@@ -23,7 +23,7 @@
                         <tr>
                             <th scope="col">Nom</th>
                             <th scope="col">Prenom</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Salaire</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -33,11 +33,17 @@
 
                             <td>{{$row['nom']}}</td>
                             <td>{{$row['prenom']}}</td>
-                            <td>{{$row['email']}}</td>
-                            <td>
+                            <td>{{$row['salaire']}}</td>
+                            <td class="d-flex justify-content-center">
                                 <a href="{{route('Employe.show' , ['Employe' => $row['id']])}}" class="btn btn-info"> <i class="fa fa-eye"></i></a>
-                                <a class="btn btn-success" type="submit"><i class='fas fa-edit'></i></a>
-                                <a class="btn btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="{{route('Employe.edit' , ['Employe' => $row['id']])}}" class="btn btn-success"> <i class='fas fa-edit'></i></a>
+                                <form action="{{ route('Employe.destroy', ['Employe' => $row['id']]) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                           </tr>
                         @endforeach
