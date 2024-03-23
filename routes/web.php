@@ -24,6 +24,11 @@ Route::resource('Employe', GetEmployes::class);
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/add' , function(){
+    return ('<h1>welcom to add page</h1>')
+});
 */
 
 
